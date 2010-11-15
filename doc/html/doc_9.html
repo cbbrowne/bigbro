@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!-- XML file produced from file: doc.tex
+     using Hyperlatex v 2.8 (c) Otfried Cheong
+     on Emacs 21.3.1, Sun Jan 16 14:19:13 2005 -->
+<head>
+<title>Big Brother Manual -- Controlling recursion: -rec</title>
+
+<style type="text/css">
+.maketitle { align : center }
+div.abstract { margin-left: 20%; margin-right: 10%; }
+h3.abstract  { align : center }
+div.verse, div.quote, div.quotation {
+  margin-left : 10%; 
+  margin-right : 10%;
+}
+dt {font-weight: bold}
+</style>
+</head>
+<body>
+<table width="100%" cellpadding="0" cellspacing="2"><tr>
+<td bgcolor="#99ccff"><a href="doc_10.html"><img border="0" alt="Checking -local or -remote links" src="file:/usr/share/hyperlatex/icons/next.png"/></a></td><td bgcolor="#99ccff"><a href="doc_5.html"><img border="0" alt="Reference" src="file:/usr/share/hyperlatex/icons/up.png"/></a></td><td bgcolor="#99ccff"><a href="doc_8.html"><img border="0" alt="Setting up mappings: -mapfrom and -mapto" src="file:/usr/share/hyperlatex/icons/previous.png"/></a></td><td align="center" bgcolor="#99ccff" width="100%"><b>Controlling recursion: <tt>-rec</tt></b></td></tr></table>
+<h2>Controlling recursion: <tt>-rec</tt></h2>
+<p></p>
+<p>By default, recursion is off. This means that Big Brother reads the documents you explicitly specify (either on the
+command line or using the <a href="doc_14.html"><tt>-stdin</tt></a> option), makes sure that the links they contain are valid, and stops.</p>
+<p>If you want to check a whole site at once, you must turn recursion on. When recursion is on, Big Brother not only
+checks each link, but also determines whether it points to an HTML document. If it does, Big Brother fetches the
+document (which can be local or remote) and checks the links in it. If one of these links points to an HTML document,
+it is also fetched, and so on, recursively.</p>
+<p>Of course, this process has to stop at some point, otherwise you are likely to check all of the World Wide Web! So,
+when recursion is on, you must provide a regular expression
+to define the boundary of your site. Every time Big Brother finds a link, it shall match it against the regular
+expression you have provided. If it does match, Big Brother fetches the document and checks it recursively; otherwise,
+it checks the link but doesn't follow it.</p>
+<p>Here is the simplest, and most common, example. The address of my home page is
+<a href="http://pauillac.inria.fr/~fpottier/"><code>http://pauillac.inria.fr/~fpottier/</code></a>. If I want to check my whole
+site in a single run of Big Brother, I invoke it with the following option:
+</p><div align="center"><p>
+<code>-rec "^http://pauillac\.inria\.fr/~fpottier/"</code>
+</p></div>
+Since the expression doesn't end with a <code>$</code> sign, it matches all URLs which start with
+<code>http://pauillac.inria.fr/~fpottier/</code>. Notice that I inserted a backslash character in front of each dot, because
+otherwise a dot matches any character.</p>
+<p>Here is another example: suppose I maintain several Web servers, but all of them are within the domain
+<code>orange.com</code>. Then, I can use the following regexp:
+</p><div align="center"><p>
+<code>-rec "^http://.*\.orange\.com/"</code>
+</p></div>
+This will match the address of any document located on any server within the domain <code>orange.com</code>.</p>
+<p>Note that the address is checked against the recursion regexp <em>after</em> the mappings have been applied to the
+address. So, if you are using mappings, say, to map a remote site to a certain folder of your hard disk, the recursion
+regexp should describe the local files' addresses, not the remote ones'. For instance, using <code>^file:</code> as recursion
+regexp simply allows recursion on all local files.</p>
+<hr /><address><a href="mailto:Francois.Pottier@inria.fr">Fran&ccedil;ois Pottier</a>, January 16, 2005</address><br />
+<table width="100%" cellpadding="0" cellspacing="2"><tr>
+<td bgcolor="#99ccff"><a href="doc_10.html"><img border="0" alt="Checking -local or -remote links" src="file:/usr/share/hyperlatex/icons/next.png"/></a></td><td bgcolor="#99ccff"><a href="doc_5.html"><img border="0" alt="Reference" src="file:/usr/share/hyperlatex/icons/up.png"/></a></td><td bgcolor="#99ccff"><a href="doc_8.html"><img border="0" alt="Setting up mappings: -mapfrom and -mapto" src="file:/usr/share/hyperlatex/icons/previous.png"/></a></td><td align="center" bgcolor="#99ccff" width="100%"><b>Controlling recursion: <tt>-rec</tt></b></td></tr></table></body></html>

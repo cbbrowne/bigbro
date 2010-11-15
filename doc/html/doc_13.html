@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!-- XML file produced from file: doc.tex
+     using Hyperlatex v 2.8 (c) Otfried Cheong
+     on Emacs 21.3.1, Sun Jan 16 14:19:14 2005 -->
+<head>
+<title>Big Brother Manual -- Controlling concurrency: -maxthreads</title>
+
+<style type="text/css">
+.maketitle { align : center }
+div.abstract { margin-left: 20%; margin-right: 10%; }
+h3.abstract  { align : center }
+div.verse, div.quote, div.quotation {
+  margin-left : 10%; 
+  margin-right : 10%;
+}
+dt {font-weight: bold}
+</style>
+</head>
+<body>
+<table width="100%" cellpadding="0" cellspacing="2"><tr>
+<td bgcolor="#99ccff"><a href="doc_14.html"><img border="0" alt="Reading from a pipe: -stdin" src="file:/usr/share/hyperlatex/icons/next.png"/></a></td><td bgcolor="#99ccff"><a href="doc_5.html"><img border="0" alt="Reference" src="file:/usr/share/hyperlatex/icons/up.png"/></a></td><td bgcolor="#99ccff"><a href="doc_12.html"><img border="0" alt="Using a proxy: -proxy and -noproxy" src="file:/usr/share/hyperlatex/icons/previous.png"/></a></td><td align="center" bgcolor="#99ccff" width="100%"><b>Controlling concurrency: <tt>-maxthreads</tt></b></td></tr></table>
+<h2>Controlling concurrency: <tt>-maxthreads</tt></h2>
+<p></p>
+<p>Big Brother is a <em>multi-threaded</em> program. This means that it can conduct several tasks in parallel. This allows
+it to gain a lot of time, because while it is waiting for a remote server to answer a request, it can still work on
+other tasks.</p>
+<p>There is a limit to the number of tasks (called <em>threads</em>) that can be run concurrently. (If there wasn't, Big
+Brother would eagerly try to do hundreds of things at once and might use up all of your machine's resources.) By
+default, this limit is 16, as if you had typed
+</p><div align="center"><p>
+<code>-maxthreads 16</code>
+</p></div>
+which means that Big Brother will check up to 16 links simultaneously. You can experiment. Big Brother should use
+less processing power and memory if the limit is decreased, and it should be faster if the limit is increased.</p>
+<hr /><address><a href="mailto:Francois.Pottier@inria.fr">Fran&ccedil;ois Pottier</a>, January 16, 2005</address><br />
+<table width="100%" cellpadding="0" cellspacing="2"><tr>
+<td bgcolor="#99ccff"><a href="doc_14.html"><img border="0" alt="Reading from a pipe: -stdin" src="file:/usr/share/hyperlatex/icons/next.png"/></a></td><td bgcolor="#99ccff"><a href="doc_5.html"><img border="0" alt="Reference" src="file:/usr/share/hyperlatex/icons/up.png"/></a></td><td bgcolor="#99ccff"><a href="doc_12.html"><img border="0" alt="Using a proxy: -proxy and -noproxy" src="file:/usr/share/hyperlatex/icons/previous.png"/></a></td><td align="center" bgcolor="#99ccff" width="100%"><b>Controlling concurrency: <tt>-maxthreads</tt></b></td></tr></table></body></html>

@@ -1,0 +1,38 @@
+
+Hello! This file contains a few short instructions explaining
+how to display Big Brother's documentation.
+
+The documentation files should be located within the same
+directory as this README file. The files are:
+
+  html/doc.htm
+
+  The documentation, in HTML format. This is probably the best
+  format for online reference. View it with any browser.
+
+  doc.ps
+
+  The documentation, in PostScript format. It should be easy to
+  print on a PostScript printer (of course) and will provide you
+  with a high-quality hardcopy. If you don't have any software to
+  handle PostScript files, you can download Ghostscript from
+	   http://www.cs.wisc.edu/~ghost/index.html
+
+  doc.pdf
+
+  The documentation, in PDF format. The quality is just as good as
+  with PostScript, and it can be viewed or printed with Adobe's
+  Acrobat Reader. If you don't have this software, you can get it
+  from
+           http://www.adobe.com/
+
+The PostScript and the PDF file are both in US Letter paper size,
+but it should be possible to print them on A4 paper anyway. If you
+have an A4 printer, I recommend printing the PDF file rather than
+the PostScript file, because Acrobat seems to do a good job of
+re-centering the text for an A4 sheet.
+
+Have fun!
+
+François Pottier
+Francois.Pottier@inria.fr

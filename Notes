@@ -1,0 +1,107 @@
+2001/03/01
+FIX
+Implémenté le module Cache.Cache par une table de hash dans laquelle on jette
+les anciens bindings. (Le code précédent les gardait, ce qui était inutile,
+puisqu'ils devenaient alors inaccessibles, les seules opérations offertes par
+le module étant add et find.) Cela corrige donc une fuite de mémoire.
+
+Ajouté un mutex autour de tous les appels à la librairie [Str], pour éviter
+les problèmes de non-réentrance de cette librairie. Le problème signalé par
+Pierre subsiste, i.e. Big Brother continue à faire systématiquement segfault
+sur la commande suivante:
+
+  rm /tmp/tata.html; \
+  ./bigbro -failures -ohtml /tmp/tata.html -index "index.html" \
+    -rec "^file:" \
+    -local -mapfrom "^http://pauillac\.inria\.fr/" \
+    -mapto "file:///net/pauillac/infosystems/www/" \
+    file:///net/pauillac/infosystems/www/index.html
+
+On note également des
+
+  Uncaught exception: Invalid_argument("String.sub")
+  Uncaught exception: Invalid_argument("Str.search_forward") (dans la version d'avant ce bug fix)
+
+2001/03/01
+CHAR
+Amélioré le message d'erreur concernant les caractères invalides.
+
+2001/03/01
+TILDE
+Hack quick & dirty pour résoudre les ~ dans les URL locales.
+
+2001/03/06
+VER
+Fait passer le numéro de version à 2.0.2.
+
+2001/03/06
+HASH
+Optimisé Cache.MakeMonoHash grâce à un appel à la nouvelle fonction
+Hashtbl.replace. Ça a l'avantage d'exiger O'Caml 3.01, qui contient
+le scheduler de threads corrigé (l'ancien scheduler contenait un bug
+qui expliquait apparemment la segfault décrite plus haut).
+
+2001/03/07
+DOC
+Updated documentation and Makefile.
+
+2001/03/09
+INSTALL
+Added install/deinstall entries to the Makefile.
+
+2001/03/09
+EMACS
+Replaced character ranges with line+column information in error messages.
+In raw output, use a format recognizable by emacs' compilation mode.
+
+2001/07/16
+PCRE
+Removed uses of the Str library and replaced them with Pcre, using camlp4
+to provide nice syntax for regular expression matching.
+
+2001/07/16
+P4
+Mentioned camlp4 as a requirement in the documentation.
+
+2001/07/17
+MAKE
+Some simplifications to the Makefile.
+
+2001/08/01
+THREAD
+Recompiled under O'Caml 3.02 and removed references to ThreadUnix.
+
+2004/02/24
+PCREG
+Updated pcreg.ml to reflect a change in camlp4: abstract syntax for assertions
+is now available.
+
+2004/05/05
+MAY
+Minor changes to the Makefile.
+Minor documentation fixes.
+Bumped version number to 2.0.4 -- new release required by incompatible
+changes to camlp4.
+
+2004/05/05
+MAYDAY
+Minor fixes to deal with new version of rpm (RedHat 8.0).
+Replaced a remaining 2.0.3 with 2.0.4.
+
+2005/01/15
+JAN
+Minor fix to deal with an incompatible change in camlp4.
+
+2005/01/15
+DEPEND
+Suppressed the "depend" entry of the Makefile.
+
+2005/01/15
+FIND
+Modified the Makefile to exploit ocamlfind.
+
+2005/01/15
+GODI
+More changes to support the GODIVA policy. Created a GODIVA
+spec file.
+

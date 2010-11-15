@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!-- XML file produced from file: doc.tex
+     using Hyperlatex v 2.8 (c) Otfried Cheong
+     on Emacs 21.3.1, Sun Jan 16 14:19:14 2005 -->
+<head>
+<title>Big Brother Manual -- Checking your site</title>
+
+<style type="text/css">
+.maketitle { align : center }
+div.abstract { margin-left: 20%; margin-right: 10%; }
+h3.abstract  { align : center }
+div.verse, div.quote, div.quotation {
+  margin-left : 10%; 
+  margin-right : 10%;
+}
+dt {font-weight: bold}
+</style>
+</head>
+<body>
+<table width="100%" cellpadding="0" cellspacing="2"><tr>
+<td bgcolor="#99ccff"><img alt="" src="file:/usr/share/hyperlatex/icons/blank.png"/></td><td bgcolor="#99ccff"><a href="doc_23.html"><img border="0" alt="Examples" src="file:/usr/share/hyperlatex/icons/up.png"/></a></td><td bgcolor="#99ccff"><a href="doc_24.html"><img border="0" alt="Checking your bookmarks" src="file:/usr/share/hyperlatex/icons/previous.png"/></a></td><td align="center" bgcolor="#99ccff" width="100%"><b>Checking your site</b></td></tr></table>
+<h2>Checking your site</h2>
+<p>This section shows which command I use to check my own site. You should be able to adapt it easily to your case.
+First, here is the command:
+</p><pre>
+bigbro                                              \
+  -mapfrom "^http://pauillac\.inria\.fr/~fpottier/" \
+  -mapto file://$HOME/public_html/                  \
+  -rec "^file:"                                     \
+  -local -remote                                    \
+  -proxy www-rocq.inria.fr:8080                     \
+  -noproxy "^http://.*\.inria\.fr/"                 \
+  -timeout 600                                      \
+  -gentle 5                                         \
+  -oraw stdout                                      \
+  -ohtml report.html                                \
+  -failures                                         \
+  -fragments                                        \
+  -ignore "^http://www\.imdb\.com/M/"               \
+  http://pauillac.inria.fr/~fpottier/
+</pre>
+<p>(The <code>\</code> characters at the end of each line are used to indicate that this is a single command, even though it is
+written on several lines for clarity.)</p>
+<p>Here is an explanation of the options used above. First, I define a <a href="doc_8.html">mapping</a>, which tells Big Brother that any document belonging to my site can be read
+directly from the <code>public_html</code> subdirectory of my home directory. (Using <code>$HOME</code> in this way is
+Unix-specific, but you can specify a full path explicitly under Windows.) Then, I enable <a href="doc_9.html">recursion</a> within my site. Determining whether a file belongs to my site is easy, since if it
+does, then it resides on disk, so it has a <code>file:</code> URL. This explains why I used <code>-rec "^file:"</code>. Next, I
+enable checking both remote and local links. I then let Big Brother know about my proxy (note that the proxy's name
+ends with a custom port number which comes after a colon). The proxy is unnecessary when accessing machines within the
+domain <code>inria.fr</code>, hence the use of the <code>-noproxy</code> option. Next, I set the timeout value to 10 minutes and,
+to avoid consuming too much server time, I specify that at least 5 seconds should elapse between two requests to the
+same server. (This is especially important when using a proxy, since nearly <em>all</em> requests are sent to the
+proxy.) Next, I request "raw" output onscreen and human-readable output to a file called <code>report.html</code>.
+Displaying failures only saves time and makes the report more readable. I want <a href="doc_20.html">fragments</a> to be checked. I use <a href="doc_21.html"><tt>-ignore</tt></a> to avoid checking some URLs which I know will cause failures. Finally, I tell Big
+Brother where to start by specifying the main URL for my site.</p>
+<p>That's it! It might seem overwhelming at first sight, but remember that once the command has been stored in a script,
+all that's needed is to run the script whenever you want your site verified.</p>
+<hr /><address><a href="mailto:Francois.Pottier@inria.fr">Fran&ccedil;ois Pottier</a>, January 16, 2005</address><br />
+<table width="100%" cellpadding="0" cellspacing="2"><tr>
+<td bgcolor="#99ccff"><img alt="" src="file:/usr/share/hyperlatex/icons/blank.png"/></td><td bgcolor="#99ccff"><a href="doc_23.html"><img border="0" alt="Examples" src="file:/usr/share/hyperlatex/icons/up.png"/></a></td><td bgcolor="#99ccff"><a href="doc_24.html"><img border="0" alt="Checking your bookmarks" src="file:/usr/share/hyperlatex/icons/previous.png"/></a></td><td align="center" bgcolor="#99ccff" width="100%"><b>Checking your site</b></td></tr></table></body></html>

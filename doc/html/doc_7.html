@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!-- XML file produced from file: doc.tex
+     using Hyperlatex v 2.8 (c) Otfried Cheong
+     on Emacs 21.3.1, Sun Jan 16 14:19:13 2005 -->
+<head>
+<title>Big Brother Manual -- Syntax of URLs</title>
+
+<style type="text/css">
+.maketitle { align : center }
+div.abstract { margin-left: 20%; margin-right: 10%; }
+h3.abstract  { align : center }
+div.verse, div.quote, div.quotation {
+  margin-left : 10%; 
+  margin-right : 10%;
+}
+dt {font-weight: bold}
+</style>
+</head>
+<body>
+<table width="100%" cellpadding="0" cellspacing="2"><tr>
+<td bgcolor="#99ccff"><a href="doc_8.html"><img border="0" alt="Setting up mappings: -mapfrom and -mapto" src="file:/usr/share/hyperlatex/icons/next.png"/></a></td><td bgcolor="#99ccff"><a href="doc_5.html"><img border="0" alt="Reference" src="file:/usr/share/hyperlatex/icons/up.png"/></a></td><td bgcolor="#99ccff"><a href="doc_6.html"><img border="0" alt="General syntax" src="file:/usr/share/hyperlatex/icons/previous.png"/></a></td><td align="center" bgcolor="#99ccff" width="100%"><b>Syntax of URLs</b></td></tr></table>
+<h2>Syntax of URLs</h2>
+<p></p>
+<p>This section gives some detail on the syntax of URLs, as used by Big Brother. These rules should be obeyed when
+supplying URLs to Big Brother.</p>
+<p>There are two kinds of URLs: remote (<code>http</code>) and local (<code>file</code>) URLs. Remote URLs have the following syntax:
+</p><div align="center"><p>
+<code>http://</code> <em>server name</em> <code>/</code> <em>relative path</em>
+</p></div>
+Under Unix, local URLs are of the form
+</p><div align="center"><p>
+<code>file:///</code> <em>relative path</em>
+</p></div>
+Under Windows, they are of the form
+</p><div align="center"><p>
+<code>file://</code> <em>drive</em> <code>/</code> <em>relative path</em>
+</p></div>
+A <em>drive</em> is a letter followed by a colon. A <em>relative path</em> is a sequence of directory or file names,
+separated by slashes, and possibly ending with a slash.</p>
+<p>These rules correspond to <em>absolute</em> URLs. A URL can also be <em>relative</em>, that is, depend on another URL. In
+that case, it only consists of a relative path, such as <code>../pics/bob.gif</code>. Note that some characters are illegal
+in URLs and must be encoded using a percent sign followed by their hexadecimal ASCII code. For instance, if a URL
+contains a space, it should be encoded as <code>%20</code>.</p>
+<hr /><address><a href="mailto:Francois.Pottier@inria.fr">Fran&ccedil;ois Pottier</a>, January 16, 2005</address><br />
+<table width="100%" cellpadding="0" cellspacing="2"><tr>
+<td bgcolor="#99ccff"><a href="doc_8.html"><img border="0" alt="Setting up mappings: -mapfrom and -mapto" src="file:/usr/share/hyperlatex/icons/next.png"/></a></td><td bgcolor="#99ccff"><a href="doc_5.html"><img border="0" alt="Reference" src="file:/usr/share/hyperlatex/icons/up.png"/></a></td><td bgcolor="#99ccff"><a href="doc_6.html"><img border="0" alt="General syntax" src="file:/usr/share/hyperlatex/icons/previous.png"/></a></td><td align="center" bgcolor="#99ccff" width="100%"><b>Syntax of URLs</b></td></tr></table></body></html>

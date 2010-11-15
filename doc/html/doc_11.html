@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!-- XML file produced from file: doc.tex
+     using Hyperlatex v 2.8 (c) Otfried Cheong
+     on Emacs 21.3.1, Sun Jan 16 14:19:13 2005 -->
+<head>
+<title>Big Brother Manual -- Configuring local checks: -index and -localhtml</title>
+
+<style type="text/css">
+.maketitle { align : center }
+div.abstract { margin-left: 20%; margin-right: 10%; }
+h3.abstract  { align : center }
+div.verse, div.quote, div.quotation {
+  margin-left : 10%; 
+  margin-right : 10%;
+}
+dt {font-weight: bold}
+</style>
+</head>
+<body>
+<table width="100%" cellpadding="0" cellspacing="2"><tr>
+<td bgcolor="#99ccff"><a href="doc_12.html"><img border="0" alt="Using a proxy: -proxy and -noproxy" src="file:/usr/share/hyperlatex/icons/next.png"/></a></td><td bgcolor="#99ccff"><a href="doc_5.html"><img border="0" alt="Reference" src="file:/usr/share/hyperlatex/icons/up.png"/></a></td><td bgcolor="#99ccff"><a href="doc_10.html"><img border="0" alt="Checking -local or -remote links" src="file:/usr/share/hyperlatex/icons/previous.png"/></a></td><td align="center" bgcolor="#99ccff" width="100%"><b>Configuring local checks: <tt>-index</tt> and <tt>-localhtml</tt></b></td></tr></table>
+<h2>Configuring local checks: <tt>-index</tt> and <tt>-localhtml</tt></h2>
+<p></p>
+<p>There are a few things Big Brother needs to know when checking local (<code>file</code>) links.</p>
+<p>The first one is the default index file name. Whenever a local link points to a directory, Big Brother looks for an
+index file inside it. (The index file is the file that should be displayed instead of the directory listing. As its
+name implies, it is supposed to describe what's in the directory, but it does not have to. It is also all right if
+there is no index file at all.) If recursion is on, and if this file's URL matches the recursion regexp, then it shall
+be opened and checked. If you don't use the <code>-index</code> option, Big Brother behaves as if you had said
+</p><div align="center"><p>
+<code>-index "index.html"</code>
+</p></div>
+This setting affects local links only, because in the case of remote links, replacing the directory with its index
+file is done transparently by the remote server.</p>
+<p>Additionally, Big Brother needs to be able to tell which files are HTML files. (This is necessary when recursion is
+on, because it would make no sense to download, say, an image file and to try analyzing it.) For remote files, there
+is no problem, because the server shall supply the necessary information. There is one, however, for local files,
+where no information is available. So, Big Brother needs you to supply a
+regular expression using the
+<code>-localhtml</code> option.  When Big Brother finds a link to a local file, it determines whether it is an HTML file by
+matching its name against this regular expression. If it does match, the file is assumed to be an HTML document.
+If you don't use the <code>-localhtml</code> option, Big Brother behaves as if you had typed
+</p><div align="center"><p>
+<code>-localhtml "\.s?htm"</code>
+</p></div>
+which means that a file is considered as an HTML file if its name contains <code>.htm</code> or <code>.shtm</code>. Here is
+another example. My site contains files in English and in French, whose names end in <code>.html.en</code> and
+<code>.html.fr</code>, respectively. I can let Big Brother know about it by typing
+</p><div align="center"><p>
+<code>-localhtml "\.html\.(en|fr)$"</code>
+</p></div>
+<hr /><address><a href="mailto:Francois.Pottier@inria.fr">Fran&ccedil;ois Pottier</a>, January 16, 2005</address><br />
+<table width="100%" cellpadding="0" cellspacing="2"><tr>
+<td bgcolor="#99ccff"><a href="doc_12.html"><img border="0" alt="Using a proxy: -proxy and -noproxy" src="file:/usr/share/hyperlatex/icons/next.png"/></a></td><td bgcolor="#99ccff"><a href="doc_5.html"><img border="0" alt="Reference" src="file:/usr/share/hyperlatex/icons/up.png"/></a></td><td bgcolor="#99ccff"><a href="doc_10.html"><img border="0" alt="Checking -local or -remote links" src="file:/usr/share/hyperlatex/icons/previous.png"/></a></td><td align="center" bgcolor="#99ccff" width="100%"><b>Configuring local checks: <tt>-index</tt> and <tt>-localhtml</tt></b></td></tr></table></body></html>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!-- XML file produced from file: doc.tex
+     using Hyperlatex v 2.8 (c) Otfried Cheong
+     on Emacs 21.3.1, Sun Jan 16 14:19:14 2005 -->
+<head>
+<title>Big Brother Manual -- Using passwords: -realm, -user and -password</title>
+
+<style type="text/css">
+.maketitle { align : center }
+div.abstract { margin-left: 20%; margin-right: 10%; }
+h3.abstract  { align : center }
+div.verse, div.quote, div.quotation {
+  margin-left : 10%; 
+  margin-right : 10%;
+}
+dt {font-weight: bold}
+</style>
+</head>
+<body>
+<table width="100%" cellpadding="0" cellspacing="2"><tr>
+<td bgcolor="#99ccff"><a href="doc_18.html"><img border="0" alt="Reporting results: -oraw and -ohtml" src="file:/usr/share/hyperlatex/icons/next.png"/></a></td><td bgcolor="#99ccff"><a href="doc_5.html"><img border="0" alt="Reference" src="file:/usr/share/hyperlatex/icons/up.png"/></a></td><td bgcolor="#99ccff"><a href="doc_16.html"><img border="0" alt="Being -gentle with servers" src="file:/usr/share/hyperlatex/icons/previous.png"/></a></td><td align="center" bgcolor="#99ccff" width="100%"><b>Using passwords: <tt>-realm</tt>, <tt>-user</tt> and <tt>-password</tt></b></td></tr></table>
+<h2>Using passwords: <tt>-realm</tt>, <tt>-user</tt> and <tt>-password</tt></h2>
+<p></p>
+<a name="id1">&nbsp;</a>
+<p>Some servers have private areas, where a <em>user name</em> and a <em>password</em> have to be supplied in order to
+download documents. Such areas are called <em>realms</em>. Big Brother is able to deal with them, provided that you tell
+it which documents require which user name &#38; password combination. This is done as follows:
+</p><div align="center"><p>
+<code>-realm </code>regexp<code> -user </code>string<code> -password </code>string
+</p></div>
+The realm is described by a regular expression. As usual, a regular
+expression describes a set of addresses. That is, a document is considered as part of the realm if its address matches
+the regular expression. The user name and password are just strings. Here is an example:
+</p><div align="center"><p>
+<code>-realm "^http://localhost/~francois/private/"</code>
+<code>-user francois -password bikini</code>
+</p></div>
+You can use these three options more than once, to define several password-protected realms with different user
+names or passwords.</p>
+<hr /><address><a href="mailto:Francois.Pottier@inria.fr">Fran&ccedil;ois Pottier</a>, January 16, 2005</address><br />
+<table width="100%" cellpadding="0" cellspacing="2"><tr>
+<td bgcolor="#99ccff"><a href="doc_18.html"><img border="0" alt="Reporting results: -oraw and -ohtml" src="file:/usr/share/hyperlatex/icons/next.png"/></a></td><td bgcolor="#99ccff"><a href="doc_5.html"><img border="0" alt="Reference" src="file:/usr/share/hyperlatex/icons/up.png"/></a></td><td bgcolor="#99ccff"><a href="doc_16.html"><img border="0" alt="Being -gentle with servers" src="file:/usr/share/hyperlatex/icons/previous.png"/></a></td><td align="center" bgcolor="#99ccff" width="100%"><b>Using passwords: <tt>-realm</tt>, <tt>-user</tt> and <tt>-password</tt></b></td></tr></table></body></html>

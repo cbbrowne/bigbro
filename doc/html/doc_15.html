@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!-- XML file produced from file: doc.tex
+     using Hyperlatex v 2.8 (c) Otfried Cheong
+     on Emacs 21.3.1, Sun Jan 16 14:19:14 2005 -->
+<head>
+<title>Big Brother Manual -- Measuring one's patience: -timeout</title>
+
+<style type="text/css">
+.maketitle { align : center }
+div.abstract { margin-left: 20%; margin-right: 10%; }
+h3.abstract  { align : center }
+div.verse, div.quote, div.quotation {
+  margin-left : 10%; 
+  margin-right : 10%;
+}
+dt {font-weight: bold}
+</style>
+</head>
+<body>
+<table width="100%" cellpadding="0" cellspacing="2"><tr>
+<td bgcolor="#99ccff"><a href="doc_16.html"><img border="0" alt="Being -gentle with servers" src="file:/usr/share/hyperlatex/icons/next.png"/></a></td><td bgcolor="#99ccff"><a href="doc_5.html"><img border="0" alt="Reference" src="file:/usr/share/hyperlatex/icons/up.png"/></a></td><td bgcolor="#99ccff"><a href="doc_14.html"><img border="0" alt="Reading from a pipe: -stdin" src="file:/usr/share/hyperlatex/icons/previous.png"/></a></td><td align="center" bgcolor="#99ccff" width="100%"><b>Measuring one's patience: <tt>-timeout</tt></b></td></tr></table>
+<h2>Measuring one's patience: <tt>-timeout</tt></h2>
+<p></p>
+<p>This option lets you specify how long, in seconds, Big Brother should wait before giving up on a network request.
+By default, there is no timeout, so Big Brother is infinitely patient. If you want Big Brother to give up after,
+say, 5 minutes, you should type
+</p><div align="center"><p>
+<code>-timeout 300</code>
+</p></div>
+This time limit concerns a whole network request: that is, it should allow enough time to locate the server, send
+the request and receive a full answer.</p>
+<p>For technical reasons currently beyond my control, this feature is only partially supported in the Windows version. In
+some cases, Big Brother might still wait longer than allowed by this option.</p>
+<hr /><address><a href="mailto:Francois.Pottier@inria.fr">Fran&ccedil;ois Pottier</a>, January 16, 2005</address><br />
+<table width="100%" cellpadding="0" cellspacing="2"><tr>
+<td bgcolor="#99ccff"><a href="doc_16.html"><img border="0" alt="Being -gentle with servers" src="file:/usr/share/hyperlatex/icons/next.png"/></a></td><td bgcolor="#99ccff"><a href="doc_5.html"><img border="0" alt="Reference" src="file:/usr/share/hyperlatex/icons/up.png"/></a></td><td bgcolor="#99ccff"><a href="doc_14.html"><img border="0" alt="Reading from a pipe: -stdin" src="file:/usr/share/hyperlatex/icons/previous.png"/></a></td><td align="center" bgcolor="#99ccff" width="100%"><b>Measuring one's patience: <tt>-timeout</tt></b></td></tr></table></body></html>

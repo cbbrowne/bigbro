@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!-- XML file produced from file: doc.tex
+     using Hyperlatex v 2.8 (c) Otfried Cheong
+     on Emacs 21.3.1, Sun Jan 16 14:19:14 2005 -->
+<head>
+<title>Big Brother Manual -- Reporting results: -oraw and -ohtml</title>
+
+<style type="text/css">
+.maketitle { align : center }
+div.abstract { margin-left: 20%; margin-right: 10%; }
+h3.abstract  { align : center }
+div.verse, div.quote, div.quotation {
+  margin-left : 10%; 
+  margin-right : 10%;
+}
+dt {font-weight: bold}
+</style>
+</head>
+<body>
+<table width="100%" cellpadding="0" cellspacing="2"><tr>
+<td bgcolor="#99ccff"><a href="doc_19.html"><img border="0" alt="Focusing on -failures" src="file:/usr/share/hyperlatex/icons/next.png"/></a></td><td bgcolor="#99ccff"><a href="doc_5.html"><img border="0" alt="Reference" src="file:/usr/share/hyperlatex/icons/up.png"/></a></td><td bgcolor="#99ccff"><a href="doc_17.html"><img border="0" alt="Using passwords: -realm, -user and -password" src="file:/usr/share/hyperlatex/icons/previous.png"/></a></td><td align="center" bgcolor="#99ccff" width="100%"><b>Reporting results: <tt>-oraw</tt> and <tt>-ohtml</tt></b></td></tr></table>
+<h2>Reporting results: <tt>-oraw</tt> and <tt>-ohtml</tt></h2>
+<p></p>
+<p>Big Brother can display the results of its work in two different ways: either by printing "raw" information, or by
+generating a report in HTML format. The former is rather difficult to read for humans, but easy to parse for a
+machine. I shall document its format when I have some time. It is requested using <code>-oraw</code>. The latter is a
+simple HTML description of which links were checked and what the outcome was. It is requested using <code>-ohtml</code>.</p>
+<p>Both <code>-oraw</code> and <code>-ohtml</code> expect an argument. If it is the keyword <code>stdout</code>, Big Brother will send the
+data to the standard output channel, which means that it will appear in your terminal window. Otherwise, the argument
+is assumed to be a file name; Big Brother creates the file and writes the output to it.</p>
+<p>For example, to store an HTML report in the file <code>results.html</code> and to see the raw information on screen, type
+</p><div align="center"><p>
+<code>-oraw stdout -ohtml results.html</code>
+</p></div>
+You must use at least one of these two options, since otherwise no output at all would be generated.</p>
+<p>When it's done checking, Big Brother displays some statistics. They appear both in raw and HTML outputs.  For each
+kind of URLs (local and remote), it displays the following information: number of documents whose existence was
+checked--number of documents actually read or downloaded--approximate volume of data transferred. This data can
+be interesting to assess your site's size!</p>
+<hr /><address><a href="mailto:Francois.Pottier@inria.fr">Fran&ccedil;ois Pottier</a>, January 16, 2005</address><br />
+<table width="100%" cellpadding="0" cellspacing="2"><tr>
+<td bgcolor="#99ccff"><a href="doc_19.html"><img border="0" alt="Focusing on -failures" src="file:/usr/share/hyperlatex/icons/next.png"/></a></td><td bgcolor="#99ccff"><a href="doc_5.html"><img border="0" alt="Reference" src="file:/usr/share/hyperlatex/icons/up.png"/></a></td><td bgcolor="#99ccff"><a href="doc_17.html"><img border="0" alt="Using passwords: -realm, -user and -password" src="file:/usr/share/hyperlatex/icons/previous.png"/></a></td><td align="center" bgcolor="#99ccff" width="100%"><b>Reporting results: <tt>-oraw</tt> and <tt>-ohtml</tt></b></td></tr></table></body></html>

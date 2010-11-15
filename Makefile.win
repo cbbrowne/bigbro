@@ -1,0 +1,96 @@
+# $Header: /net/yquem/devel/caml/repository/bigbro/Makefile.win,v 1.1.1.1 2001/02/13 15:39:38 fpottier Exp $
+
+# ---------------------------------------------------------------------------------------------------------------------
+# System configuration.
+
+WINPACK=bb200#
+
+# The system-dependent module is Syswin.
+# The binary that should be built is bigbro.exe.
+# Define the package directory name.
+
+SYSMAGIC=syswin#
+all:: bigbro.exe
+PACKAGE=$(WINPACK)#
+
+# ---------------------------------------------------------------------------------------------------------------------
+# More configuration.
+
+CAMLC=ocamlc
+CAMLDEP=ocamldep
+COMPFLAGS=-thread
+
+# ---------------------------------------------------------------------------------------------------------------------
+# The list of bytecode files to be linked.
+
+OBJS=misc.cmo settings.cmo string_utils.cmo thread_utils.cmo io_utils.cmo sysmagic.cmo base64.cmo url_syntax.cmo url.cmo media_type.cmo timer.cmo agency.cmo linear_connection.cmo http_connection.cmo stats.cmo link_info.cmo stripper.cmo skimmer.cmo fragment_skimmer.cmo link_skimmer.cmo cache.cmo check_file.cmo check_master.cmo check_http.cmo main.cmo
+
+# ---------------------------------------------------------------------------------------------------------------------
+# How to build the main executable.
+
+bigbro.exe: $(OBJS)
+	$(CAMLC) -thread -custom unix.cma threads.cma str.cma $(OBJS) -o bigbro.exe %CAMLLIB%/libthreads.lib %CAMLLIB%/libunix.lib wsock32.lib %CAMLLIB%/libstr.lib
+
+# ---------------------------------------------------------------------------------------------------------------------
+# Cleaning up.
+# We remove:
+#   The package directory and the RPM/zip packages.
+#   The renamed copy of the system dependent module.
+#   The executable.
+#   Any generated binary or editor file.
+
+clean::
+	rm -rf $(PACKAGE) $(PACKAGE).tar.gz *.rpm *.zip
+	rm -f sysmagic.ml sysmagic.mli
+	rm -f bigbro.exe
+	rm -f *.cmi *.cmx *.cmo *.ppo *.o *.obj *~ #*#
+
+# ---------------------------------------------------------------------------------------------------------------------
+# The usual way to compile O'Caml programs.
+
+depend::
+	rm -rf .generated-dependencies
+	$(CAMLDEP) *.mli *.ml > .generated-dependencies
+
+.SUFFIXES: .mli .cmi .ml .cmo
+
+.mli.cmi:
+	$(CAMLC) $(COMPFLAGS) -c $<
+
+.ml.cmo:
+	$(CAMLC) $(COMPFLAGS) -c $<
+
+# ---------------------------------------------------------------------------------------------------------------------
+# A bit of magic.
+# The Sysmagic module should be a renamed copy of Sysunix or Syswin, depending on the current architecture.
+# We make it write-protected to remind the programmer that it shouldn't be edited.
+
+sysmagic.ml: $(SYSMAGIC).ml
+	rm -f sysmagic.ml
+	cp $(SYSMAGIC).ml sysmagic.ml
+	chmod a-w sysmagic.ml
+
+sysmagic.mli: $(SYSMAGIC).mli
+	rm -f sysmagic.mli
+	cp $(SYSMAGIC).mli sysmagic.mli
+	chmod a-w sysmagic.mli
+
+# ---------------------------------------------------------------------------------------------------------------------
+# Building a package.
+# The documentation cannot be built under Windows, so it should have been built under Linux first.
+# I don't have a command-line version of pkzip under Windows, so I zip the file under Linux afterwards.
+
+package:
+	make clean
+	make all
+	mkdir $(PACKAGE)
+	cp bigbro.exe $(PACKAGE)
+	mkdir $(PACKAGE)/doc
+	cp -r doc/doc.ps doc/doc.pdf doc/html $(PACKAGE)/doc
+	cp doc/README.win $(PACKAGE)/doc/README
+
+# ---------------------------------------------------------------------------------------------------------------------
+# Auto-generated dependencies.
+
+include .generated-dependencies
+

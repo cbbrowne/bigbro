@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!-- XML file produced from file: doc.tex
+     using Hyperlatex v 2.8 (c) Otfried Cheong
+     on Emacs 21.3.1, Sun Jan 16 14:19:14 2005 -->
+<head>
+<title>Big Brother Manual -- Being -gentle with servers</title>
+
+<style type="text/css">
+.maketitle { align : center }
+div.abstract { margin-left: 20%; margin-right: 10%; }
+h3.abstract  { align : center }
+div.verse, div.quote, div.quotation {
+  margin-left : 10%; 
+  margin-right : 10%;
+}
+dt {font-weight: bold}
+</style>
+</head>
+<body>
+<table width="100%" cellpadding="0" cellspacing="2"><tr>
+<td bgcolor="#99ccff"><a href="doc_17.html"><img border="0" alt="Using passwords: -realm, -user and -password" src="file:/usr/share/hyperlatex/icons/next.png"/></a></td><td bgcolor="#99ccff"><a href="doc_5.html"><img border="0" alt="Reference" src="file:/usr/share/hyperlatex/icons/up.png"/></a></td><td bgcolor="#99ccff"><a href="doc_15.html"><img border="0" alt="Measuring one's patience: -timeout" src="file:/usr/share/hyperlatex/icons/previous.png"/></a></td><td align="center" bgcolor="#99ccff" width="100%"><b>Being <tt>-gentle</tt> with servers</b></td></tr></table>
+<h2>Being <tt>-gentle</tt> with servers</h2>
+<p></p>
+<p>This option lets you specify how long Big Brother should wait between two requests to the same server. By default, Big
+Brother is not gentle at all, so it will issue HTTP requests as quickly as it can. This could make the target Web
+server(s) noticeably less responsive. So, to avoid overload, you should specify how many seconds must elapse between
+consecutive requests to a single server, by using the <code>-gentle</code> option. A reasonable setting is
+</p><div align="center"><p>
+<code>-gentle 5</code>
+</p></div>
+Of course, this will cause link checking to take more time.</p>
+<hr /><address><a href="mailto:Francois.Pottier@inria.fr">Fran&ccedil;ois Pottier</a>, January 16, 2005</address><br />
+<table width="100%" cellpadding="0" cellspacing="2"><tr>
+<td bgcolor="#99ccff"><a href="doc_17.html"><img border="0" alt="Using passwords: -realm, -user and -password" src="file:/usr/share/hyperlatex/icons/next.png"/></a></td><td bgcolor="#99ccff"><a href="doc_5.html"><img border="0" alt="Reference" src="file:/usr/share/hyperlatex/icons/up.png"/></a></td><td bgcolor="#99ccff"><a href="doc_15.html"><img border="0" alt="Measuring one's patience: -timeout" src="file:/usr/share/hyperlatex/icons/previous.png"/></a></td><td align="center" bgcolor="#99ccff" width="100%"><b>Being <tt>-gentle</tt> with servers</b></td></tr></table></body></html>

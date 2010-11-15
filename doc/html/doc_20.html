@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!-- XML file produced from file: doc.tex
+     using Hyperlatex v 2.8 (c) Otfried Cheong
+     on Emacs 21.3.1, Sun Jan 16 14:19:14 2005 -->
+<head>
+<title>Big Brother Manual -- Checking -fragments</title>
+
+<style type="text/css">
+.maketitle { align : center }
+div.abstract { margin-left: 20%; margin-right: 10%; }
+h3.abstract  { align : center }
+div.verse, div.quote, div.quotation {
+  margin-left : 10%; 
+  margin-right : 10%;
+}
+dt {font-weight: bold}
+</style>
+</head>
+<body>
+<table width="100%" cellpadding="0" cellspacing="2"><tr>
+<td bgcolor="#99ccff"><a href="doc_21.html"><img border="0" alt="Ignoring certain links: -ignore" src="file:/usr/share/hyperlatex/icons/next.png"/></a></td><td bgcolor="#99ccff"><a href="doc_5.html"><img border="0" alt="Reference" src="file:/usr/share/hyperlatex/icons/up.png"/></a></td><td bgcolor="#99ccff"><a href="doc_19.html"><img border="0" alt="Focusing on -failures" src="file:/usr/share/hyperlatex/icons/previous.png"/></a></td><td align="center" bgcolor="#99ccff" width="100%"><b>Checking <tt>-fragments</tt></b></td></tr></table>
+<h2>Checking <tt>-fragments</tt></h2>
+<p></p>
+<p>Some URLs contain a <code>#</code> sign followed by a pointer to a specific spot in the document, like this:
+</p><div align="center"><p>
+<code>http://www.someone.com/help.html#me</code>
+</p></div>
+The final part of this URL, <code>#me</code>, is called a <em>fragment</em>. (Many people call it an <em>anchor</em>.) It is a
+reference to a specific place within the document <code>http://www.someone.com/help.html</code>. This fragment should be
+<em>defined</em>, to indicate which place is meant by this name. Fragments are usually defined using the <code>&lt;A&gt;</code>
+tag, like this:
+</p><div align="center"><p>
+<code>&lt;A NAME="me"&gt;some text&lt;/A&gt;</code>
+</p></div>
+They can also be defined by adding an <code>ID</code> attribute to any HTML tag.</p>
+<p>Naturally, part of Big Brother's job is to make sure that fragments are correctly defined. However, this can use
+a lot of network bandwidth. Imagine what happens when Big Brother checks the above URL. First, it asks the server
+<code>www.someone.com</code> whether the document <code>help.html</code> exists. This is usually very fast, because the server
+simply answers "yes, it does" without actually transmitting it. However, if Big Brother wishes to make sure that
+<code>#me</code> is defined, then it has to download the whole document and look for the definition in it.</p>
+<p>One should point out that Big Brother handles the problem in the smartest possible way. That is, it will never
+download a document twice, even in the most complex situations. Nevertheless, checking fragments could mean
+downloading a lot more data. (Have a look at the statistics displayed at the end of each report to see exactly how
+much more.) Because of this, checking fragments is an option. It is off by default; in that case, Big Brother will
+simply ignore anything that comes after the <code>#</code> sign. To turn it on, add
+</p><div align="center"><p>
+<code>-fragments</code>
+</p></div>
+to the command line.</p>
+<hr /><address><a href="mailto:Francois.Pottier@inria.fr">Fran&ccedil;ois Pottier</a>, January 16, 2005</address><br />
+<table width="100%" cellpadding="0" cellspacing="2"><tr>
+<td bgcolor="#99ccff"><a href="doc_21.html"><img border="0" alt="Ignoring certain links: -ignore" src="file:/usr/share/hyperlatex/icons/next.png"/></a></td><td bgcolor="#99ccff"><a href="doc_5.html"><img border="0" alt="Reference" src="file:/usr/share/hyperlatex/icons/up.png"/></a></td><td bgcolor="#99ccff"><a href="doc_19.html"><img border="0" alt="Focusing on -failures" src="file:/usr/share/hyperlatex/icons/previous.png"/></a></td><td align="center" bgcolor="#99ccff" width="100%"><b>Checking <tt>-fragments</tt></b></td></tr></table></body></html>

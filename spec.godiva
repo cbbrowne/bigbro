@@ -1,0 +1,16 @@
+Package: apps-bigbro
+Version: 2.0.4
+Revision: 3
+Depends: godi-ocaml (>= 3.08), godi-pcre
+Build-Depends: godi-findlib
+Sources: http://cristal.inria.fr/~fpottier/bigbro/bigbro-2.0.4-rev3.tar.gz
+Homepage: http://cristal.inria.fr/~fpottier/bb.html.en
+Maintainer: François Pottier <Francois.Pottier@inria.fr>
+Description: An http link checker.
+Big Brother allows you to keep an eye on your World Wide Web links. It is
+essential for webmasters and authors who wish to make sure that the links
+contained in their pages are up-to-date; a chore which quickly gets out of
+hand without an automated tool! It is also invaluable to those who maintain a
+large list of bookmarks, since it can easily be used to check bookmark files.
+Big Brother is in the public domain.
+.

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!-- XML file produced from file: doc.tex
+     using Hyperlatex v 2.8 (c) Otfried Cheong
+     on Emacs 21.3.1, Sun Jan 16 14:19:13 2005 -->
+<head>
+<title>Big Brother Manual -- General syntax</title>
+
+<style type="text/css">
+.maketitle { align : center }
+div.abstract { margin-left: 20%; margin-right: 10%; }
+h3.abstract  { align : center }
+div.verse, div.quote, div.quotation {
+  margin-left : 10%; 
+  margin-right : 10%;
+}
+dt {font-weight: bold}
+</style>
+</head>
+<body>
+<table width="100%" cellpadding="0" cellspacing="2"><tr>
+<td bgcolor="#99ccff"><a href="doc_7.html"><img border="0" alt="Syntax of URLs" src="file:/usr/share/hyperlatex/icons/next.png"/></a></td><td bgcolor="#99ccff"><a href="doc_5.html"><img border="0" alt="Reference" src="file:/usr/share/hyperlatex/icons/up.png"/></a></td><td bgcolor="#99ccff"><img alt="" src="file:/usr/share/hyperlatex/icons/blank.png"/></td><td align="center" bgcolor="#99ccff" width="100%"><b>General syntax</b></td></tr></table>
+<h2>General syntax</h2>
+<p>Big Brother is invoked as follows:
+</p><div align="center"><p>
+<code>bigbro</code> [<em>options</em>] <em>url1 url2</em> ...
+</p></div>
+That is, following the program name, you have the ability to specify one or more options, and you must then specify a
+list of URLs. (This list can be empty; this makes sense if you use the <a href="doc_14.html"><tt>-stdin</tt></a> option.) Options, as well as
+URLs, are separated by spaces.</p>
+<p>URLs must be formed according to a certain <a href="doc_7.html">syntax</a>. They can be
+absolute or relative. If they are relative, they shall be resolved with respect to the current directory. Under Unix,
+this means that you can specify file names instead of URLs and obtain the expected behavior.  Under Windows, this does
+not work, because URLs use a slash as a separator, whereas file names use a backslash.</p>
+<p>Big Brother checks each URL in the list. To specify how it should report the results, use the <a href="doc_18.html"><tt>-oraw</tt></a> and
+<a href="doc_18.html"><tt>-ohtml</tt></a> options.</p>
+<p>Some options have no parameter. Others expect one parameter, which should come after the option's name, separated by a
+space. Parameters are usually integers, strings or regular expressions. The syntax of regular expressions follows that
+of Perl. (In fact, regular expression support is provided by the PCRE library package, which is open source software,
+written by Philip Hazel, and copyright by the University of Cambridge, England.)</p>
+<hr /><address><a href="mailto:Francois.Pottier@inria.fr">Fran&ccedil;ois Pottier</a>, January 16, 2005</address><br />
+<table width="100%" cellpadding="0" cellspacing="2"><tr>
+<td bgcolor="#99ccff"><a href="doc_7.html"><img border="0" alt="Syntax of URLs" src="file:/usr/share/hyperlatex/icons/next.png"/></a></td><td bgcolor="#99ccff"><a href="doc_5.html"><img border="0" alt="Reference" src="file:/usr/share/hyperlatex/icons/up.png"/></a></td><td bgcolor="#99ccff"><img alt="" src="file:/usr/share/hyperlatex/icons/blank.png"/></td><td align="center" bgcolor="#99ccff" width="100%"><b>General syntax</b></td></tr></table></body></html>

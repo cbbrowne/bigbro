@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!-- XML file produced from file: doc.tex
+     using Hyperlatex v 2.8 (c) Otfried Cheong
+     on Emacs 21.3.1, Sun Jan 16 14:19:13 2005 -->
+<head>
+<title>Big Brother Manual -- Setting up mappings: -mapfrom and -mapto</title>
+
+<style type="text/css">
+.maketitle { align : center }
+div.abstract { margin-left: 20%; margin-right: 10%; }
+h3.abstract  { align : center }
+div.verse, div.quote, div.quotation {
+  margin-left : 10%; 
+  margin-right : 10%;
+}
+dt {font-weight: bold}
+</style>
+</head>
+<body>
+<table width="100%" cellpadding="0" cellspacing="2"><tr>
+<td bgcolor="#99ccff"><a href="doc_9.html"><img border="0" alt="Controlling recursion: -rec" src="file:/usr/share/hyperlatex/icons/next.png"/></a></td><td bgcolor="#99ccff"><a href="doc_5.html"><img border="0" alt="Reference" src="file:/usr/share/hyperlatex/icons/up.png"/></a></td><td bgcolor="#99ccff"><a href="doc_7.html"><img border="0" alt="Syntax of URLs" src="file:/usr/share/hyperlatex/icons/previous.png"/></a></td><td align="center" bgcolor="#99ccff" width="100%"><b>Setting up mappings: <tt>-mapfrom</tt> and <tt>-mapto</tt></b></td></tr></table>
+<h2>Setting up mappings: <tt>-mapfrom</tt> and <tt>-mapto</tt></h2>
+<p></p>
+<em>Mappings</em> are a mechanism which allows URLs to be rewritten before being checked. The most typical use of 
+<p>mappings is to let Big Brother bypass a Web server and read documents directly from disk, as shown in the example
+below.</p>
+<p>You can specify any number of mappings. All mappings are applied to the URL being checked, after it has been resolved
+(that is, turned into an absolute URL, if it was relative). A mapping is specified as follows:
+</p><div align="center"><p>
+<code>-mapfrom</code> regexp <code>-mapto</code> replacement
+</p></div>
+The mapping is applied by finding the first substring of the URL at hand which matches the specified
+regular expression,
+and replacing it with the replacement string. (If no substring matches the regular expression, the mapping has no
+effect.) The replacement string can contain <code>$1</code>, <code>$2</code>, etc; these sequences will be replaced by the text
+matched by the corresponding group in the regular expression. <code>$0</code> stands for the text matched by the whole
+regular expression.</p>
+<p>Here is a simple and realistic example. Suppose I have a Web site available at
+<code>http://www.users.com/~tom/</code>, whose files are stored on my hard disk in the directory <code>/home/tom/web/</code>. When
+checking my site, I want Big Brother to read the documents directly off my disk, instead of requesting them from the
+Web server. So, I set up a mapping:
+</p><div align="center"><p>
+<code>-mapfrom "^http://www\.users\.com/~tom/"</code>
+<code>-mapto "file:///home/tom/web/"</code>
+</p></div>
+Now, suppose I ask Big Brother to check the URL <code>http://www.users.com/~tom/index.html</code>. The mapping applies, so
+the URL is rewritten and becomes <code>file:///home/tom/web/index.html</code>. Thus, Big Brother will read the file from
+disk, rather than request it from the server.</p>
+<p>Let us explore this example a bit further. Assume the above index file contains a link to <code>../~amy/</code>. Amy's Web
+site is <em>not</em> stored on my hard disk. Will Big Brother be smart enough to request it from the server? Yes!
+Although Big Brother applies the mapping to a URL when trying to access it, it remembers the original URL and uses it
+as the base URL when resolving relative URLs. In slightly less technical terms, here is what this means: when it finds
+the relative link <code>../~amy/</code>, Big Brother resolves it. It is resolved with respect to the unmapped URL of the
+current document, which is <code>http://www.users.com/~tom/index.html</code>. So, the resolved URL is
+<code>http://www.users.com/~amy/</code>. At this point, the mapping is applied to this URL, but it does not match, so the URL
+remains unchanged. As a result, Big Brother properly sends a request to the Web server to retrieve this document.</p>
+<p>So, to sum up, here's how to bypass a Web server using mappings. First, set up a mapping which maps <code>http</code> URLs to
+<code>file</code> URLs appropriately. (Have a look at the <a href="doc_7.html">URL syntax rules</a>.)
+Second, ask Big Brother to check the remote URL, as usual.</p>
+<p>Now, here comes a more elaborate example, which shows how powerful mappings can be. I'm still Tom and I still have
+a Web site, but this time, only the HTML documents are stored on my hard disk - other files, such as images, are
+available only on the server. So, I want the mapping to apply only to HTML files. Here's the way to do it:
+</p><div align="center"><p>
+<code>-mapfrom "^http://www\.users\.com/~tom/(.*\.html)$"</code>
+<code>-mapto "file:///home/tom/web/$1"</code>
+</p></div>
+The regular expression matches only documents whose name ends with <code>.html</code>. Besides, the document name is
+enclosed by a <em>group</em> using <code>(</code> and <code>)</code>, which allows referring to it by <code>$1</code> in the replacement
+string. So, <code>http://www.users.com/~tom/index.html</code> is still turned into <code>file:///home/tom/web/index.html</code>, but
+URLs of image files, such as <code>http://www.users.com/~tom/tom.jpg</code>, are unaffected.</p>
+<hr /><address><a href="mailto:Francois.Pottier@inria.fr">Fran&ccedil;ois Pottier</a>, January 16, 2005</address><br />
+<table width="100%" cellpadding="0" cellspacing="2"><tr>
+<td bgcolor="#99ccff"><a href="doc_9.html"><img border="0" alt="Controlling recursion: -rec" src="file:/usr/share/hyperlatex/icons/next.png"/></a></td><td bgcolor="#99ccff"><a href="doc_5.html"><img border="0" alt="Reference" src="file:/usr/share/hyperlatex/icons/up.png"/></a></td><td bgcolor="#99ccff"><a href="doc_7.html"><img border="0" alt="Syntax of URLs" src="file:/usr/share/hyperlatex/icons/previous.png"/></a></td><td align="center" bgcolor="#99ccff" width="100%"><b>Setting up mappings: <tt>-mapfrom</tt> and <tt>-mapto</tt></b></td></tr></table></body></html>

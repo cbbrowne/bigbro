@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!-- XML file produced from file: doc.tex
+     using Hyperlatex v 2.8 (c) Otfried Cheong
+     on Emacs 21.3.1, Sun Jan 16 14:19:15 2005 -->
+<head>
+<title>Big Brother Manual -- Compiling Big Brother</title>
+
+<style type="text/css">
+.maketitle { align : center }
+div.abstract { margin-left: 20%; margin-right: 10%; }
+h3.abstract  { align : center }
+div.verse, div.quote, div.quotation {
+  margin-left : 10%; 
+  margin-right : 10%;
+}
+dt {font-weight: bold}
+</style>
+</head>
+<body>
+<table width="100%" cellpadding="0" cellspacing="2"><tr>
+<td bgcolor="#99ccff"><a href="doc_30.html"><img border="0" alt="Contacting me" src="file:/usr/share/hyperlatex/icons/next.png"/></a></td><td bgcolor="#99ccff"><a href="doc_26.html"><img border="0" alt="Miscellaneous" src="file:/usr/share/hyperlatex/icons/up.png"/></a></td><td bgcolor="#99ccff"><a href="doc_28.html"><img border="0" alt="Licence" src="file:/usr/share/hyperlatex/icons/previous.png"/></a></td><td align="center" bgcolor="#99ccff" width="100%"><b>Compiling Big Brother</b></td></tr></table>
+<h2>Compiling Big Brother</h2>
+<p></p>
+<p>To compile Big Brother from its source code, you need
+</p><ul><li>some version of GNU <tt>make</tt>;
+</li><li>the <a href="http://caml.inria.fr/">Objective Caml</a>&#32;compiler, version 3.07 or later.
+</li><li>Markus Mottl's O'Caml interface to Philip Hazel's <a href="http://pcre-ocaml.sourceforge.net/">PCRE</a> library.
+</li></ul>
+<p>To build Big Brother, issue the following commands:
+</p><pre>
+  touch .generated-dependencies
+  make depend
+  make
+</pre>
+<p>If you should wish to also compile Big Brother's documentation, you need
+</p><ul><li>a TeX&#32;compiler, with a LaTeX2e&#32;distribution;
+</li><li>a copy of the <tt>hyperlatex</tt> package, version 2.5 or later, by Otfried Cheong;
+</li><li>a copy of <tt>ps2pdf</tt>, part of Aladdin Ghostscript.
+</li></ul>
+<hr /><address><a href="mailto:Francois.Pottier@inria.fr">Fran&ccedil;ois Pottier</a>, January 16, 2005</address><br />
+<table width="100%" cellpadding="0" cellspacing="2"><tr>
+<td bgcolor="#99ccff"><a href="doc_30.html"><img border="0" alt="Contacting me" src="file:/usr/share/hyperlatex/icons/next.png"/></a></td><td bgcolor="#99ccff"><a href="doc_26.html"><img border="0" alt="Miscellaneous" src="file:/usr/share/hyperlatex/icons/up.png"/></a></td><td bgcolor="#99ccff"><a href="doc_28.html"><img border="0" alt="Licence" src="file:/usr/share/hyperlatex/icons/previous.png"/></a></td><td align="center" bgcolor="#99ccff" width="100%"><b>Compiling Big Brother</b></td></tr></table></body></html>

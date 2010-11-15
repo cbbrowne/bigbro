@@ -1,0 +1,29 @@
+(* $Header: /net/yquem/devel/caml/repository/bigbro/Todo,v 1.2 2002/11/15 14:24:24 fpottier Exp $ *)
+
+--- Code
+
+There is currently no way to check a link at depth 0.
+APPLET/OBJECT ARCHIVE tag is a space-separated URL list.
+Add command line options to customize the HTML report (title, opening blurb)?
+Make the HTML report generally more pleasant to look at.
+Entities (HTML escape sequences) are legal in fragment names, is this taken into account?
+Handle the Content-Base HTTP header.
+Support for FTP protocol.
+Allow following redirected links instead of/in addition to reporting them.
+Allow sorting report by error type.
+
+--- Code, hypothetical
+
+Rewrite moved links automatically.
+Use heuristics to recognize human-readable "this page moved" messages? This requires fetching the page's text, but it
+can be done conditionally by checking whether the text is sufficiently short.
+Support Netscape-ism <META HTTP-EQUIV="Refresh" CONTENT="30; URL=http://www.apple.com/documents/groups.html">
+
+--- Documentation
+
+Décrire toutes les erreurs possibles.
+
+--- Very hypothetical
+
+Implement a bulk tool - Javert?
+

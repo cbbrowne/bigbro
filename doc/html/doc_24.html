@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!-- XML file produced from file: doc.tex
+     using Hyperlatex v 2.8 (c) Otfried Cheong
+     on Emacs 21.3.1, Sun Jan 16 14:19:14 2005 -->
+<head>
+<title>Big Brother Manual -- Checking your bookmarks</title>
+
+<style type="text/css">
+.maketitle { align : center }
+div.abstract { margin-left: 20%; margin-right: 10%; }
+h3.abstract  { align : center }
+div.verse, div.quote, div.quotation {
+  margin-left : 10%; 
+  margin-right : 10%;
+}
+dt {font-weight: bold}
+</style>
+</head>
+<body>
+<table width="100%" cellpadding="0" cellspacing="2"><tr>
+<td bgcolor="#99ccff"><a href="doc_25.html"><img border="0" alt="Checking your site" src="file:/usr/share/hyperlatex/icons/next.png"/></a></td><td bgcolor="#99ccff"><a href="doc_23.html"><img border="0" alt="Examples" src="file:/usr/share/hyperlatex/icons/up.png"/></a></td><td bgcolor="#99ccff"><img alt="" src="file:/usr/share/hyperlatex/icons/blank.png"/></td><td align="center" bgcolor="#99ccff" width="100%"><b>Checking your bookmarks</b></td></tr></table>
+<h2>Checking your bookmarks</h2>
+<p>Most browsers store your bookmarks in a special HTML file. The name and location of that file depend on your
+particular brand of operating system and of browser. When using Netscape Navigator under Unix, it is called
+<code>bookmarks.html</code> and located in a directory called <code>.netscape</code> inside your home directory. Under Windows NT,
+it might be <code>C:\Program Files\Netscape\Navigator\bookmark.htm</code>. If you are using another setup, you'll need to
+experiment to discover this information. (Let me know what you find out, and I'll add it to the manual.)</p>
+<p>Which options to use? Since bookmarks usually point to external sites, you won't need any mappings. Recursion should
+be off, because you're only interested in knowing whether these documents exist, not whether the links they contain
+are valid.  As always, we must avoid overloading servers, so we use <a href="doc_16.html"><tt>-gentle</tt></a> to slow down Big Brother. To
+obtain human-readable results, we request Big Brother to store a report in HTML format using <a href="doc_18.html"><tt>-ohtml</tt></a>. So,
+the command will look like this, under Unix:
+</p><pre>
+bigbro               \
+  -local             \
+  -remote            \
+  -gentle 5          \
+  -ohtml report.html \
+  -failures          \
+  -fragments         \
+  $HOME/.netscape/bookmarks.html
+</pre>
+<p>(The <code>\</code> characters at the end of each line are used to indicate that this is a single command, even though it is
+written on several lines for clarity.) You can store this command in a script to avoid typing it again and again.
+Also, it is easy to have the report mailed to you and the script run every week. Under Windows, your batch file might
+look like this:
+</p><pre>
+bigbro               \
+  -local             \
+  -remote            \
+  -gentle 5          \
+  -ohtml report.htm  \
+  -failures          \
+  -fragments         \
+  file://C:/Program%20Files/Netscape/Navigator/bookmark.htm
+</pre>
+<p>Note that I had to replace the space in "<code>Program Files</code>" with an escape sequence "<code>%20</code>", because
+spaces are illegal in URLs.</p>
+<p>Of course, your situation might be slightly different. For instance, remember to specify a proxy if you need one.
+Also, if your bookmarks contain pointers to password-protected sites, you will have to give the password to Big
+Brother by using <a href="doc_17.html"><tt>-realm</tt></a>, <a href="doc_17.html"><tt>-user</tt></a> and <a href="doc_17.html#id1"><tt>-password</tt></a>. (Under Windows NT or Unix, you might
+then want to make the script unreadable to other users, so as to protect your privacy.)</p>
+<hr /><address><a href="mailto:Francois.Pottier@inria.fr">Fran&ccedil;ois Pottier</a>, January 16, 2005</address><br />
+<table width="100%" cellpadding="0" cellspacing="2"><tr>
+<td bgcolor="#99ccff"><a href="doc_25.html"><img border="0" alt="Checking your site" src="file:/usr/share/hyperlatex/icons/next.png"/></a></td><td bgcolor="#99ccff"><a href="doc_23.html"><img border="0" alt="Examples" src="file:/usr/share/hyperlatex/icons/up.png"/></a></td><td bgcolor="#99ccff"><img alt="" src="file:/usr/share/hyperlatex/icons/blank.png"/></td><td align="center" bgcolor="#99ccff" width="100%"><b>Checking your bookmarks</b></td></tr></table></body></html>

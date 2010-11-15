@@ -1,0 +1,9 @@
+# $Header: /net/yquem/devel/caml/repository/bigbro/rpmrc,v 1.1.1.1 2001/02/13 15:39:37 fpottier Exp $
+
+excludedocs: 0
+packager: <pottier@kagi.com>
+require_distribution: 0
+require_icon: 0
+require_vendor: 1
+vendor: Francois Pottier
+

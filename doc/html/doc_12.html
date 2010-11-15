@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!-- XML file produced from file: doc.tex
+     using Hyperlatex v 2.8 (c) Otfried Cheong
+     on Emacs 21.3.1, Sun Jan 16 14:19:13 2005 -->
+<head>
+<title>Big Brother Manual -- Using a proxy: -proxy and -noproxy</title>
+
+<style type="text/css">
+.maketitle { align : center }
+div.abstract { margin-left: 20%; margin-right: 10%; }
+h3.abstract  { align : center }
+div.verse, div.quote, div.quotation {
+  margin-left : 10%; 
+  margin-right : 10%;
+}
+dt {font-weight: bold}
+</style>
+</head>
+<body>
+<table width="100%" cellpadding="0" cellspacing="2"><tr>
+<td bgcolor="#99ccff"><a href="doc_13.html"><img border="0" alt="Controlling concurrency: -maxthreads" src="file:/usr/share/hyperlatex/icons/next.png"/></a></td><td bgcolor="#99ccff"><a href="doc_5.html"><img border="0" alt="Reference" src="file:/usr/share/hyperlatex/icons/up.png"/></a></td><td bgcolor="#99ccff"><a href="doc_11.html"><img border="0" alt="Configuring local checks: -index and -localhtml" src="file:/usr/share/hyperlatex/icons/previous.png"/></a></td><td align="center" bgcolor="#99ccff" width="100%"><b>Using a proxy: <tt>-proxy</tt> and <tt>-noproxy</tt></b></td></tr></table>
+<h2>Using a proxy: <tt>-proxy</tt> and <tt>-noproxy</tt></h2>
+<p></p>
+<p>If your machine is located behind a firewall which isolates it from the outside world, you might need to use a proxy.
+A proxy is a gateway machine which sits between you and the rest of the network and relays your machine's HTTP
+requests.</p>
+<p>If you don't know whether you need a proxy, ask your nearby guru. Having a look at your browser's settings might also
+help. If you find that you need to use a proxy, give its name to Big Brother using the <code>-proxy</code> option. If the
+proxy uses a port number other than 80, you must include a colon followed by the port number at the end of the
+name. For instance, I use
+</p><div align="center"><p>
+<code>-proxy www-rocq.inria.fr:8080</code>
+</p></div>
+You usually don't need to use the proxy when connecting to a machine within the same organization as yours, because it
+is also behind the firewall. In that case, bypassing the proxy should be more efficient. You can tell Big Brother to
+do so by using the <code>-noproxy</code> option. This option is followed by a
+regular expression.
+The expression describes a set of addresses which can be accessed without using the proxy. For instance, I can access
+all machines within the domain <code>inria.fr</code> without using the proxy, so I specify
+</p><div align="center"><p>
+<code>-noproxy "^http://.*\.inria\.fr/"</code>
+</p></div>
+<hr /><address><a href="mailto:Francois.Pottier@inria.fr">Fran&ccedil;ois Pottier</a>, January 16, 2005</address><br />
+<table width="100%" cellpadding="0" cellspacing="2"><tr>
+<td bgcolor="#99ccff"><a href="doc_13.html"><img border="0" alt="Controlling concurrency: -maxthreads" src="file:/usr/share/hyperlatex/icons/next.png"/></a></td><td bgcolor="#99ccff"><a href="doc_5.html"><img border="0" alt="Reference" src="file:/usr/share/hyperlatex/icons/up.png"/></a></td><td bgcolor="#99ccff"><a href="doc_11.html"><img border="0" alt="Configuring local checks: -index and -localhtml" src="file:/usr/share/hyperlatex/icons/previous.png"/></a></td><td align="center" bgcolor="#99ccff" width="100%"><b>Using a proxy: <tt>-proxy</tt> and <tt>-noproxy</tt></b></td></tr></table></body></html>
